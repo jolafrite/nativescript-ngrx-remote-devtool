@@ -1,0 +1,33 @@
+{
+  "name": "nativescript-ngrx-remote-devtool",
+  "version": "0.0.1",
+  "description": "",
+  "author": "jolafrite",
+  "license": "ISC",
+  "nativescript": {
+    "platforms": {
+      "ios": "3.0.0",
+      "android": "3.0.0"
+    },
+    "hooks": [
+      {
+        "type": "before-prepare",
+        "script": "before-prepare.js"
+      }
+    ]
+  },
+  "scripts": {
+
+  },
+  "dependencies": {
+    "@ngrx/store-devtools": "^5.2.0",
+    "jsan": "^3.1.9",
+    "nativescript-websockets": "^1.4.0",
+    "socketcluster-client": "^10.1.2"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "^5.2.8",
+    "remotedev-server": "^0.2.4",
+    "typescript": "^2.7.2"
+  }
+}

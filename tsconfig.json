@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "noEmitHelpers": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./node_modules/*"
+      ]
+    }
+  },
+  "include": [
+    "./"
+  ],
+  "exclude": [
+    "node_modules",
+    "platforms",
+    "demo",
+    "ng-demo"
+  ]
+}

@@ -40,15 +40,6 @@ lib
 test
 hooks
 src
-src/package.json
-src/app/app*
-src/app/App_Resources
-src/app/fonts
-src/app/package.json
-src/hooks
-src/lib
-src/node_modules
-src/platforms
 
 Thumbs.db
 .DS_Store

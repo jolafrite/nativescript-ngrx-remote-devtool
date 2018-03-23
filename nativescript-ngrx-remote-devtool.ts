@@ -11,4 +11,4 @@ import { ɵj as REDUX_DEVTOOLS_EXTENSION } from '@ngrx/store-devtools';
     }
   ]
 })
-export class HmxReduxDevtoolModule {}
+export class NativescriptNgrxRemoteDevtoolModule {}

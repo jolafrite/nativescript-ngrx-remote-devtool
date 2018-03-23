@@ -1,7 +1,7 @@
 import { ReduxDevtoolsExtension, ReduxDevtoolsExtensionConfig, ReduxDevtoolsExtensionConnection } from '@ngrx/store-devtools/src/extension';
 import { RemoteDev } from './remotedev';
 
-interface RemoteDevToolsProxyOptions {
+export interface RemoteDevToolsProxyOptions {
   realtime?: boolean;
   hostname?: string;
   port?: number;
@@ -54,7 +54,7 @@ export class RemoteDevToolsProxy implements ReduxDevtoolsExtension {
   private options: RemoteDevToolsProxyOptions = {};
 
   constructor(
-    options: RemoteDevToolsProxyOptions
+    private customOptions: RemoteDevToolsProxyOptions
   ) {
     this.options = {
       realtime: true,
@@ -64,7 +64,7 @@ export class RemoteDevToolsProxy implements ReduxDevtoolsExtension {
       connectTimeout: 20000,
       ackTimeout: 10000,
       secure: true,
-      ...options
+      ...customOptions
     };
   }
 

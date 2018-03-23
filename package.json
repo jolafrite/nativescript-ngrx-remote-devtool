@@ -1,6 +1,6 @@
 {
   "name": "nativescript-ngrx-remote-devtool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Add ngrx remote devtool",
   "main": "nativescript-ngrx-remote-devtool",
   "module": "nativescript-ngrx-remote-devtool.js",

@@ -1,23 +1,9 @@
-import { ReduxDevtoolsExtension, ReduxDevtoolsExtensionConfig, ReduxDevtoolsExtensionConnection } from '@ngrx/store-devtools/src/extension';
 import { RemoteDev } from './remotedev';
+import { RemoteDevToolsProxyOptions } from './model';
+import { Injectable, InjectionToken, Optional, Inject } from '@angular/core';
+import { ReduxDevtoolsExtensionConnection, ReduxDevtoolsExtension, ReduxDevtoolsExtensionConfig } from '@ngrx/store-devtools/src/extension';
 
-export interface RemoteDevToolsProxyOptions {
-  realtime?: boolean;
-  hostname?: string;
-  port?: number;
-  autoReconnect?: boolean;
-  connectTimeout?: number;
-  ackTimeout?: number;
-  secure?: boolean;
-}
-
-export function createReduxDevtoolsExtension() {
-  return new RemoteDevToolsProxy({
-    connectTimeout: 300000, // extend for pauses during debugging
-    ackTimeout: 120000,  // extend for pauses during debugging
-    secure: false, // dev only
-  });
-}
+export const REMOTE_DEVTOOLS_PROXY_OPTIONS = new InjectionToken<RemoteDevToolsProxyOptions>('RemoteDevToolsProxyOptions');
 
 export class RemoteDevToolsConnectionProxy implements ReduxDevtoolsExtensionConnection {
 
@@ -48,22 +34,23 @@ export class RemoteDevToolsConnectionProxy implements ReduxDevtoolsExtensionConn
 
 }
 
+@Injectable()
 export class RemoteDevToolsProxy implements ReduxDevtoolsExtension {
 
   private remotedev = null;
   private options: RemoteDevToolsProxyOptions = {};
 
   constructor(
-    private customOptions: RemoteDevToolsProxyOptions
+    @Optional() @Inject(REMOTE_DEVTOOLS_PROXY_OPTIONS) customOptions: RemoteDevToolsProxyOptions = {}
   ) {
     this.options = {
       realtime: true,
       hostname: 'localhost',
       port: 8000,
       autoReconnect: true,
-      connectTimeout: 20000,
-      ackTimeout: 10000,
-      secure: true,
+      connectTimeout: 300000,
+      ackTimeout: 120000,
+      secure: false,
       ...customOptions
     };
   }

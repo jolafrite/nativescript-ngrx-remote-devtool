@@ -1,40 +1,38 @@
 {
-  "compilerOptions": {
-    "noImplicitAny": false,
-    "module": "commonjs",
-    "target": "es5",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "declaration": true,
-    "sourceMap": false,
-    "noEmitHelpers": true,
-    "noEmitOnError": true,
-    "skipLibCheck": true,
-    "lib": [
-      "es2017",
-      "dom"
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
+        "skipLibCheck": true,
+        "lib": [
+            "es6",
+            "dom",
+            "es2015.iterable"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "~/*": [
+                "app/*"
+            ],
+            "*": [
+                "./node_modules/tns-core-modules/*",
+                "./node_modules/*"
+            ],
+            "nativescript-dev-ngrx-remote-devtool": [
+                "./lib/index.ts"
+            ]
+        }
+    },
+    "include": [
+        "../src",
+        "**/*"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "./node_modules/tns-core-modules/*",
-        "./node_modules/*"
-      ]
-    }
-  },
-  "files": [
-    "nativescript-ngrx-remote-devtool.ts",
-    "./src/remotedev/remotedev.ts",
-    "./src/remotedev/proxy.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/node_modules",
-    "bundles"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true
-  }
+    "exclude": [
+        "../src/node_modules",
+        "node_modules",
+        "platforms"
+    ]
 }
